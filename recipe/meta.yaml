@@ -18,7 +18,7 @@ build:
 
 requirements:
   build:
-    - python  # [not win]
+    - python
     - numpy  # [not win]
 
   run:

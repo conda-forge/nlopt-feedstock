@@ -33,7 +33,6 @@ conda search nlopt --channel conda-forge
 ```
 
 
-
 About conda-forge
 =================
 

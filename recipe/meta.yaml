@@ -31,7 +31,8 @@ test:
 
 about:
   home: http://ab-initio.mit.edu/nlopt
-  license: GNU Lesser General Public License (LGPL)
+  license: LGPL 2.1
+  license_file: COPYING
   summary: nonlinear optimization library
 
 extra:

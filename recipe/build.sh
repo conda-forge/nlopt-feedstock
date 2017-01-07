@@ -7,5 +7,5 @@
   --without-matlab   \
   --without-guile
 
-make -j ${CPU_COUNT}
+make
 make install

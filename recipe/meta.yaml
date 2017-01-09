@@ -10,25 +10,26 @@ source:
   md5: d0b8f139a4acf29b76dbae69ade8ac54
 
 build:
-  number: 0
+  number: 1
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
     - vc14  # [win and py>35]
-  skip: true  # [win and py>35]
 
 requirements:
   build:
+    - cmake
+    - swig
     - python
-    - numpy  # [not win]
+    - numpy
 
   run:
-    - python  # [not win]
-    - numpy  # [not win]
+    - python
+    - numpy
 
 test:
   imports:
-    - nlopt  # [not win]
+    - nlopt
 
 about:
   home: http://ab-initio.mit.edu/nlopt

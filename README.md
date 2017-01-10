@@ -3,13 +3,25 @@ About nlopt
 
 Home: http://ab-initio.mit.edu/nlopt
 
-Package license: GNU Lesser General Public License (LGPL)
+Package license: LGPL 2.1
 
 Feedstock license: BSD 3-Clause
 
 Summary: nonlinear optimization library
 
 
+
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/nlopt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/nlopt-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/nlopt-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/nlopt-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/nlopt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/nlopt-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/nlopt/badges/version.svg)](https://anaconda.org/conda-forge/nlopt)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/nlopt/badges/downloads.svg)](https://anaconda.org/conda-forge/nlopt)
 
 Installing nlopt
 ================
@@ -66,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/nlopt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/nlopt-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/nlopt-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/nlopt-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/nlopt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/nlopt-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/nlopt/badges/version.svg)](https://anaconda.org/conda-forge/nlopt)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/nlopt/badges/downloads.svg)](https://anaconda.org/conda-forge/nlopt)
 
 
 Updating nlopt-feedstock

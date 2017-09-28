@@ -10,7 +10,7 @@ source:
   md5: d0b8f139a4acf29b76dbae69ade8ac54
 
 build:
-  number: 1
+  number: 2
   features:
     - vc9  # [win and py27]
     - vc14  # [win and py>=35]
@@ -20,11 +20,15 @@ requirements:
     - cmake
     - swig
     - python
-    - numpy
+    - numpy 1.8.*   # [not (win and (py35 or py36))]
+    - numpy 1.9.*   # [win and py35]
+    - numpy 1.11.*  # [win and py36]
 
   run:
     - python
-    - numpy
+    - numpy >=1.8   # [not (win and (py35 or py36))]
+    - numpy >=1.9   # [win and py35]
+    - numpy >=1.11  # [win and py36]
 
 test:
   imports:

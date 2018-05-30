@@ -11,7 +11,7 @@ set CMAKE_CONFIG="Release"
 cmake -LAH -G"NMake Makefiles"                     ^
   -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"           ^
   -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%"        ^
-  -DNLOPT_CXX=ON                                   ^
+  -DWITH_CXX=ON                                    ^
   -DINSTALL_PYTHON_DIR="%SP_DIR%" ..
 if errorlevel 1 exit 1
 

@@ -5,7 +5,7 @@
   --enable-shared    \
   --without-octave   \
   --without-matlab   \
-  --without-guile
-
+  --without-guile    \
+  --with-cxx
 make -j${CPU_COUNT}
 make install

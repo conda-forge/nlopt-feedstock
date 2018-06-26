@@ -11,25 +11,25 @@ source:
 
 build:
   number: 2
-  features:
-    - vc9  # [win and py27]
-    - vc14  # [win and py>=35]
 
 requirements:
   build:
-    - toolchain
     - cmake
+    - {{ compiler('fortran') }}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - swig
     - python
-    - numpy 1.8.*   # [not (win and (py35 or py36))]
-    - numpy 1.9.*   # [win and py35]
-    - numpy 1.11.*  # [win and py36]
+    - numpy         # [not (win and (py35 or py36))]
+    - numpy         # [win and py35]
+    - numpy         # [win and py36]
 
   run:
     - python
-    - numpy >=1.8   # [not (win and (py35 or py36))]
-    - numpy >=1.9   # [win and py35]
-    - numpy >=1.11  # [win and py36]
+    - {{ pin_compatible('numpy') }}    # [not (win and (py35 or py36))]
+    - {{ pin_compatible('numpy') }}    # [win and py35]
+    - {{ pin_compatible('numpy') }}   # [win and py36]
 
 test:
   imports:

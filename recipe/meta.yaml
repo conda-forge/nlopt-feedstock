@@ -10,26 +10,20 @@ source:
   md5: d0b8f139a4acf29b76dbae69ade8ac54
 
 build:
-  number: 2
-  features:
-    - vc9  # [win and py27]
-    - vc14  # [win and py>=35]
+  number: 3
 
 requirements:
   build:
-    - toolchain
     - cmake
     - swig
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
-    - numpy 1.8.*   # [not (win and (py35 or py36))]
-    - numpy 1.9.*   # [win and py35]
-    - numpy 1.11.*  # [win and py36]
-
+    - numpy
   run:
     - python
-    - numpy >=1.8   # [not (win and (py35 or py36))]
-    - numpy >=1.9   # [win and py35]
-    - numpy >=1.11  # [win and py36]
+    - {{ pin_compatible('numpy') }}
 
 test:
   imports:

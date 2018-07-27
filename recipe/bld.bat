@@ -12,6 +12,7 @@ if errorlevel 1 exit 1
 cmake --build . --config %CMAKE_CONFIG% --target install
 if errorlevel 1 exit 1
 
+copy nlopt.dll test
 ctest --output-on-failure --timeout 100
 if errorlevel 1 exit 1
 

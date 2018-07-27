@@ -1,11 +1,10 @@
 #!/bin/sh
 
-./configure          \
-  --prefix=${PREFIX} \
-  --enable-shared    \
-  --without-octave   \
-  --without-matlab   \
-  --without-guile
+mkdir build && cd build
+cmake \
+  -DCMAKE_PREFIX_PATH=${PREFIX} \
+  -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+  -DCMAKE_INSTALL_LIBDIR=lib \
+  -DNLOPT_GUILE=OFF -DNLOPT_MATLAB=OFF -DNLOPT_OCTAVE=OFF .. 
 
-make -j${CPU_COUNT}
-make install
+make install -j${CPU_COUNT}

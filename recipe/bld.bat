@@ -1,9 +1,4 @@
 
-# cmake support in git
-git clone https://github.com/stevengj/nlopt.git
-cd nlopt
-git checkout f4fc543
-
 mkdir build && cd build
 
 set CMAKE_CONFIG="Release"

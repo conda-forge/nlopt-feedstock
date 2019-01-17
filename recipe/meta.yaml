@@ -13,7 +13,7 @@ source:
     - 0001-Link-swig-modules-with-dynamic-lookup.patch
 
 build:
-  number: 1000
+  number: 1001
 
 requirements:
   build:

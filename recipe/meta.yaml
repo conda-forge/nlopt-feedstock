@@ -8,9 +8,6 @@ source:
   fn: nlopt-{{ version }}.tar.gz
   url: https://github.com/stevengj/nlopt/archive/v{{ version }}.tar.gz
   sha256: a13077cdf5f5f1127eaaac0bf1e06744bfe98d8a4a3430a15e0af50a69f451ab
-  patches:
-    # https://github.com/stevengj/nlopt/pull/221
-    - 0001-Link-swig-modules-with-dynamic-lookup.patch
 
 build:
   number: 0

@@ -7,9 +7,9 @@ channel_targets:
 cxx_compiler:
 - vs2008
 nlopt:
-- 2.5.*
+- 2.6.*
 numpy:
-- '1.11'
+- '1.14'
 pin_run_as_build:
   nlopt:
     max_pin: x.x.x

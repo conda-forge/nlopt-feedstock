@@ -1,0 +1,20 @@
+--- /dev/null	2021-07-15 10:29:09.322722920 +0200
++++ setup.py	2021-07-16 15:19:12.291743154 +0200
+@@ -0,0 +1,17 @@
++import os
++from skbuild import setup
++
++setup(
++    name=os.environ["PKG_NAME"],
++    version=os.environ["PKG_VERSION"],
++    cmake_args=[
++        # "-DCMAKE_PREFIX_PATH={}".format(os.environ["PREFIX"]),
++        # "-DCMAKE_INSTALL_PREFIX={}".format(os.environ["PREFIX"]),
++        # "-DCMAKE_INSTALL_LIBDIR={}/lib".format(os.environ["PREFIX"]),
++        "-DCMAKE_INSTALL_LIBDIR=lib",
++        "-DPython_EXECUTABLE={}".format(os.environ["PYTHON"]),
++        "-DNLOPT_GUILE=OFF",
++        "-DNLOPT_MATLAB=OFF",
++        "-DNLOPT_OCTAVE=OFF",
++    ]
++)

@@ -16,3 +16,6 @@ copy nlopt.dll test
 ctest --output-on-failure --timeout 100
 if errorlevel 1 exit 1
 
+set DIST_INFO_PATH=%SP_DIR%\%PKG_NAME%-%PKG_VERSION%.dist-info
+mkdir %DIST_INFO_PATH%
+copy nul %DIST_INFO_PATH%\METADATA

@@ -10,7 +10,7 @@ source:
   sha256: b881cc2a5face5139f1c5a30caf26b7d3cb43d69d5e423c9d78392f99844499f
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('nlopt', max_pin='x.x') }}
 

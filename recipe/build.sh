@@ -20,6 +20,7 @@ if test "$CONDA_BUILD_CROSS_COMPILATION" = "1"
 then
   sp_dir=`python -c "import sysconfig, os; print(sysconfig.get_path('platlib').replace(sysconfig.get_path('data'), '').lstrip(os.path.sep))"`
   target_arch=`echo ${HOST} | cut -f 1 -d "-"`
+  test -f "${PREFIX}/bin/pypy" && target_arch=`echo ${target_arch} | sed "s|powerpc64le|ppc_64|g"`
   mod_ext=`python -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])" | sed "s|x86_64|${target_arch}|g"`
   mv ${PREFIX}/${sp_dir}/_nlopt.so ${PREFIX}/${sp_dir}/_nlopt${mod_ext}
 fi

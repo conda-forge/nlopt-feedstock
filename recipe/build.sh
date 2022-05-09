@@ -22,5 +22,5 @@ then
 fi
 
 DIST_INFO_PATH=${SP_DIR}/${PKG_NAME}-${PKG_VERSION}.dist-info
-mkdir $DIST_INFO_PATH
+mkdir -p $DIST_INFO_PATH
 touch $DIST_INFO_PATH/METADATA

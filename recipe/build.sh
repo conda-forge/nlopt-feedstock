@@ -2,10 +2,11 @@
 
 set -x
 
-#if test -f "${PREFIX}/bin/pypy"
-#then
- # PYPY_ARGS="-DPYTHON_INCLUDE_DIR=${PREFIX}/include/pypy${CONDA_PY:0:1}.${CONDA_PY:1} -DPYTHON_LIBRARY=${PREFIX}/lib/libpypy${CONDA_PY:0:1}.${CONDA_PY:1}-c${SHLIB_EXT} -DINSTALL_PYTHON_DIR=lib/pypy${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages"
-#fi
+if test -f "${PREFIX}/bin/pypy"
+then
+  PYPY_ARGS="-DPYTHON_INCLUDE_DIR=${PREFIX}/include/pypy${CONDA_PY:0:1}.${CONDA_PY:1} -DPYTHON_LIBRARY=${PREFIX}/lib/libpypy${CONDA_PY:0:1}.${CONDA_PY:1}-c${SHLIB_EXT}"
+  #-DINSTALL_PYTHON_DIR=lib/pypy${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages
+fi
 
 mkdir build && cd build
 cmake ${CMAKE_ARGS} \

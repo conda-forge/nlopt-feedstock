@@ -32,6 +32,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
+  commands:
+    - ls -l ${SP_DIR}/nlopt
   imports:
     - nlopt
 

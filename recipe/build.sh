@@ -16,6 +16,11 @@ cmake ${CMAKE_ARGS} \
 
 make install -j${CPU_COUNT}
 
+if test -f "${PREFIX}/bin/pypy"
+then
+  mv ${PREFIX}/lib/python${CONDA_PY:0:1}.${CONDA_PY:1} ${PREFIX}/lib/pypy${CONDA_PY:0:1}.${CONDA_PY:1}
+fi
+
 DIST_INFO_PATH=${SP_DIR}/${PKG_NAME}-${PKG_VERSION}.dist-info
 mkdir $DIST_INFO_PATH
 touch $DIST_INFO_PATH/METADATA

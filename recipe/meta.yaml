@@ -36,8 +36,10 @@ requirements:
 test:
   commands:
     - python -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"
-  imports:
-    - nlopt
+    - python -c "import nlopt"
+
+  #imports:
+  #  - nlopt
 
 about:
   home: http://ab-initio.mit.edu/nlopt

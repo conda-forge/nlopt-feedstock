@@ -8,6 +8,8 @@ source:
   fn: nlopt-{{ version }}.tar.gz
   url: https://github.com/stevengj/nlopt/archive/v{{ version }}.tar.gz
   sha256: db88232fa5cef0ff6e39943fc63ab6074208831dc0031cf1545f6ecd31ae2a1a
+  patches:
+    - pep3149.patch
 
 build:
   number: 1

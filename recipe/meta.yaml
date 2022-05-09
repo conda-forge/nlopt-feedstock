@@ -32,9 +32,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
-  commands:
-    - ls -l ${SP_DIR} || echo "nope"
-    - python -c "import nlopt"
+  imports:
+    - nlopt
 
 about:
   home: http://ab-initio.mit.edu/nlopt

@@ -34,8 +34,7 @@ requirements:
 test:
   commands:
     - ls -l ${SP_DIR}/nlopt
-  imports:
-    - nlopt
+    - python -c "import nlopt"
 
 about:
   home: http://ab-initio.mit.edu/nlopt

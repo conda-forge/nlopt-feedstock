@@ -29,7 +29,7 @@ ext_path=
 if test "$CONDA_BUILD_CROSS_COMPILATION" = "1"
 then
   ext_path=`python -c "import sysconfig, os; print(sysconfig.get_path('platlib').replace(sysconfig.get_path('data'), '').lstrip(os.path.sep))"`
-  ext=`${PREFIX}/bin/pypy -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"`
+  ext=`${PREFIX}/bin/python -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"`
   echo "cdt_arch=${cdt_arch}"
 fi
 

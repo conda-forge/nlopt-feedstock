@@ -2,13 +2,10 @@
 
 set -x
 
-echo "CONFIG_FILE=${CONFIG_FILE}"
-echo "CONDA_PY=${CONDA_PY}"
-if `grep -q pypy <<< ${CONFIG_FILE}`
+if test -f "${PREFIX}/bin/pypy"
 then
   PYPY_ARGS="-DPYTHON_INCLUDE_DIR=${PREFIX}/include/pypy${CONDA_PY:0:1}.${CONDA_PY:1} -DPYTHON_LIBRARY=${PREFIX}/lib/libpypy${CONDA_PY:0:1}.${CONDA_PY:1}-c${SHLIB_EXT}"
 fi
-echo "PYPY_ARGS=${PYPY_ARGS}"
 
 mkdir build && cd build
 cmake ${CMAKE_ARGS} \

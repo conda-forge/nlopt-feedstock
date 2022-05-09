@@ -34,6 +34,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
+  commands:
+    - python -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"
   imports:
     - nlopt
 

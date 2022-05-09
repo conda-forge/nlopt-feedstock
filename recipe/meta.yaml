@@ -34,12 +34,8 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
-  commands:
-    - python -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"
-    - python -c "import nlopt"
-
-  #imports:
-  #  - nlopt
+  imports:
+    - nlopt
 
 about:
   home: http://ab-initio.mit.edu/nlopt

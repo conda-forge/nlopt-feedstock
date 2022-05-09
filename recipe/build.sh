@@ -18,7 +18,7 @@ make install -j${CPU_COUNT}
 
 if test -f "${PREFIX}/bin/pypy"
 then
-  EXT=`pypy -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"`
+  EXT=`${PREFIX}/bin/pypy -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"`
   mv ${PREFIX}/lib/pypy${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages/_nlopt.so ${PREFIX}/lib/pypy${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages/_nlopt${EXT}
 fi
 

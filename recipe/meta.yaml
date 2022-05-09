@@ -33,7 +33,7 @@ requirements:
 
 test:
   commands:
-    - ls -l ${SP_DIR}/nlopt
+    - ls -l ${SP_DIR} || echo "nope"
     - python -c "import nlopt"
 
 about:

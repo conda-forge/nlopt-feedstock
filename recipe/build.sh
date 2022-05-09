@@ -12,6 +12,7 @@ cmake ${CMAKE_ARGS} \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
   -DCMAKE_INSTALL_LIBDIR=lib \
+  -DINSTALL_PYTHON_DIR=lib/pypy${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages \
   -DNLOPT_GUILE=OFF -DNLOPT_MATLAB=OFF -DNLOPT_OCTAVE=OFF ${PYPY_ARGS} ..
 
 make install -j${CPU_COUNT}
@@ -19,7 +20,7 @@ make install -j${CPU_COUNT}
 if test -f "${PREFIX}/bin/pypy"
 then
   EXT=`pypy -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"`
-  mv ${PREFIX}/lib/python${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages/_nlopt.so ${PREFIX}/lib/python${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages/_nlopt${EXT}
+  mv ${PREFIX}/lib/pypy${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages/_nlopt.so ${PREFIX}/lib/pypy${CONDA_PY:0:1}.${CONDA_PY:1}/site-packages/_nlopt${EXT}
 fi
 
 DIST_INFO_PATH=${SP_DIR}/${PKG_NAME}-${PKG_VERSION}.dist-info

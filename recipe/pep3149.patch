@@ -1,0 +1,59 @@
+From fcdb9737c0adec3bd51c5a0ea0f03e94d470d961 Mon Sep 17 00:00:00 2001
+From: Julien Schueller <schueller@phimeca.com>
+Date: Mon, 9 May 2022 09:53:49 +0200
+Subject: [PATCH] Implement PEP 3149
+
+---
+ .github/workflows/build.yml | 2 +-
+ CMakeLists.txt              | 6 ++++++
+ src/swig/CMakeLists.txt     | 8 ++++++++
+ 3 files changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/.github/workflows/build.yml b/.github/workflows/build.yml
+index 20a623c2..c0682dc2 100644
+--- a/.github/workflows/build.yml
++++ b/.github/workflows/build.yml
+@@ -39,6 +39,6 @@ jobs:
+           cmake -DCMAKE_INSTALL_PREFIX=%cd:\=/%/install .
+           cmake --build . --config Release --target install
+           xcopy %cd%\install\bin\nlopt.dll %cd%\src\swig
+-          xcopy %cd%\install\Lib\site-packages\_nlopt.pyd %cd%\src\swig
++          xcopy %cd%\install\Lib\site-packages\_nlopt*.pyd %cd%\src\swig
+           dir /p %cd%\src\swig
+           ctest -C Release --output-on-failure --timeout 100
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3aac638c..3cac9ea6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -301,6 +301,12 @@ if (NLOPT_PYTHON)
+   find_package (NumPy)
+ endif ()
+ 
++if (NOT DEFINED INSTALL_PYTHON_DIR AND NOT CMAKE_CROSSCOMPILING)
++  execute_process (COMMAND ${PYTHON_EXECUTABLE} -c "import sysconfig, os; print(sysconfig.get_path('platlib').replace(sysconfig.get_path('data'), '').lstrip(os.path.sep))"
++                    OUTPUT_VARIABLE INSTALL_PYTHON_DIR OUTPUT_STRIP_TRAILING_WHITESPACE)
++  file (TO_CMAKE_PATH "${INSTALL_PYTHON_DIR}" INSTALL_PYTHON_DIR)
++endif ()
++
+ if (NOT DEFINED INSTALL_PYTHON_DIR)
+   if (WIN32)
+     set (INSTALL_PYTHON_DIR Lib/site-packages)
+diff --git a/src/swig/CMakeLists.txt b/src/swig/CMakeLists.txt
+index 78e25333..9afeb997 100644
+--- a/src/swig/CMakeLists.txt
++++ b/src/swig/CMakeLists.txt
+@@ -46,6 +46,14 @@ if (NUMPY_FOUND AND PYTHONLIBS_FOUND)
+     set_target_properties (${nlopt_python} PROPERTIES PREFIX "_")
+   endif ()
+ 
++  if (NOT DEFINED PYTHON_EXTENSION_MODULE_SUFFIX AND NOT CMAKE_CROSSCOMPILING)
++    execute_process (COMMAND ${PYTHON_EXECUTABLE} -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])"
++                    OUTPUT_VARIABLE PYTHON_EXTENSION_MODULE_SUFFIX OUTPUT_STRIP_TRAILING_WHITESPACE)
++  endif ()
++  if (DEFINED PYTHON_EXTENSION_MODULE_SUFFIX)
++    set_target_properties (${nlopt_python} PROPERTIES SUFFIX "${PYTHON_EXTENSION_MODULE_SUFFIX}")
++  endif ()
++
+   install (FILES ${CMAKE_CURRENT_BINARY_DIR}/nlopt.py DESTINATION ${INSTALL_PYTHON_DIR})
+   install (TARGETS ${nlopt_python} LIBRARY DESTINATION ${INSTALL_PYTHON_DIR})
+ endif ()

@@ -17,10 +17,8 @@ docker_image:
 nlopt:
 - '2.7'
 numpy:
-- '1.19'
+- '1.20'
 pin_run_as_build:
-  nlopt:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x

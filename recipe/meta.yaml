@@ -12,7 +12,7 @@ source:
     - pep3149.patch
 
 build:
-  number: 1
+  number: 2
   run_exports:
     - {{ pin_subpackage('nlopt', max_pin='x.x') }}
 

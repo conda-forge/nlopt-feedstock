@@ -28,4 +28,4 @@ make install -j${CPU_COUNT}
 DIST_INFO_PATH=${SP_DIR}/${PKG_NAME}-${PKG_VERSION}.dist-info
 mkdir -p $DIST_INFO_PATH
 touch $DIST_INFO_PATH/METADATA
-echo -e "Metadata-Version: 1.0\\nName: ${PKG_VERSION}\\nVersion: ${PKG_VERSION}" >> $DIST_INFO_PATH/METADATA
+echo -e "Metadata-Version: 1.0\\nName: ${PKG_NAME}\\nVersion: ${PKG_VERSION}" >> $DIST_INFO_PATH/METADATA

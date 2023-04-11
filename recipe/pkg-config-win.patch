@@ -1,0 +1,35 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -177,10 +177,11 @@
+ configure_file (${CMAKE_CURRENT_SOURCE_DIR}/nlopt_config.h.in ${CMAKE_CURRENT_BINARY_DIR}/nlopt_config.h IMMEDIATE)
+ 
+ # pkgconfig file
+-if (UNIX OR MINGW)
+-  configure_file (${CMAKE_CURRENT_SOURCE_DIR}/nlopt.pc.in ${CMAKE_CURRENT_BINARY_DIR}/nlopt.pc @ONLY)
+-  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/nlopt.pc DESTINATION ${RELATIVE_INSTALL_LIB_DIR}/pkgconfig)
+-endif ()
++if (HAVE_LIBM)
++  set (LIBS_PRIVATE "-lm")
++endif()
++configure_file (${CMAKE_CURRENT_SOURCE_DIR}/nlopt.pc.in ${CMAKE_CURRENT_BINARY_DIR}/nlopt.pc @ONLY)
++install (FILES ${CMAKE_CURRENT_BINARY_DIR}/nlopt.pc DESTINATION ${RELATIVE_INSTALL_LIB_DIR}/pkgconfig)
+ 
+ #==============================================================================
+ # nlopt LIBRARY TARGET (SHARED OR STATIC)
+--- a/nlopt.pc.in
++++ b/nlopt.pc.in
+@@ -1,11 +1,11 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+-libdir=${exec_prefix}/lib
+-includedir=${prefix}/include
++libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+ 
+ Name: NLopt
+ Description: nonlinear optimization libary
+ Version: @NLOPT_VERSION_STRING@
+ Libs: -L${libdir} -lnlopt
+-Libs.private: -lm
++Libs.private: @LIBS_PRIVATE@
+ Cflags: -I${includedir}

@@ -10,6 +10,7 @@ source:
   sha256: db88232fa5cef0ff6e39943fc63ab6074208831dc0031cf1545f6ecd31ae2a1a
   patches:
     - pep3149.patch
+    - pkg-config-win.patch
 
 build:
   number: 3

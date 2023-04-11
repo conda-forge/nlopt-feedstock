@@ -13,7 +13,7 @@ source:
     - pkg-config-win.patch
 
 build:
-  number: 3
+  number: 4
   run_exports:
     - {{ pin_subpackage('nlopt', max_pin='x.x') }}
 

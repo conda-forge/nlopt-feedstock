@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -298,7 +298,7 @@
+ 
+ if (NLOPT_PYTHON)
+   find_package (PythonInterp)
+-  find_package (PythonLibs ${PYTHON_VERSION_STRING} EXACT)
++  find_package (PythonLibs ${PYTHON_VERSION_STRING})
+   find_package (NumPy)
+ endif ()
+ 

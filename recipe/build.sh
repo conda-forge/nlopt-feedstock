@@ -12,7 +12,7 @@ then
   target_arch=`echo ${HOST} | cut -f 1 -d "-"`
   test -f "${PREFIX}/bin/pypy" && target_arch=`echo ${target_arch} | sed "s|powerpc64le|ppc_64|g"`
   mod_ext=`python -c "import importlib.machinery; print(importlib.machinery.EXTENSION_SUFFIXES[0])" | sed "s|x86_64|${target_arch}|g"`
-  CROSS_ARGS="-DPYTHON_EXTENSION_MODULE_SUFFIX=${mod_ext}"
+  CROSS_ARGS="-DPYTHON_EXTENSION_MODULE_SUFFIX=${mod_ext} -DPYTHON_EXECUTABLE=${BUILD_PREFIX}/bin/python"
 fi
 
 mkdir build && cd build

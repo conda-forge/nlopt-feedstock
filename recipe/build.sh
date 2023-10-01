@@ -4,7 +4,7 @@ set -x
 
 if test -f "${PREFIX}/bin/pypy"
 then
-  PYPY_ARGS="-DPYTHON_INCLUDE_DIR=${PREFIX}/include/pypy${CONDA_PY:0:1}.${CONDA_PY:1} -DPYTHON_LIBRARY=${PREFIX}/lib/libpypy${CONDA_PY:0:1}.${CONDA_PY:1}-c${SHLIB_EXT}"
+  PYPY_ARGS="-DPYTHON_INCLUDE_DIR=${PREFIX}/include/pypy${CONDA_PY:0:1}.${CONDA_PY:1} -DPYTHON_LIBRARY=${PREFIX}/lib/libpypy${CONDA_PY:0:1}.${CONDA_PY:1}-c${SHLIB_EXT}  -DPYTHON_EXECUTABLE=${PREFIX}/bin/pypy"
 fi
 
 if test "$CONDA_BUILD_CROSS_COMPILATION" = "1"

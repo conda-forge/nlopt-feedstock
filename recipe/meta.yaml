@@ -13,6 +13,7 @@ source:
 
 build:
   number: 4
+  skip: True  # [python_impl == 'pypy']
   run_exports:
     - {{ pin_subpackage('nlopt', max_pin='x.x') }}
 

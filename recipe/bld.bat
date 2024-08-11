@@ -6,6 +6,8 @@ set CMAKE_CONFIG="Release"
 cmake -LAH -G"NMake Makefiles"                     ^
   -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"           ^
   -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%"        ^
+  -DPython_FIND_STRATEGY=LOCATION ^
+  -DPython_ROOT_DIR="%PREFIX%" ^
   -DINSTALL_PYTHON_DIR="%SP_DIR%" ..
 if errorlevel 1 exit 1
 

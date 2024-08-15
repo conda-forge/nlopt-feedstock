@@ -12,7 +12,8 @@ source:
     - pep3149.patch
 
 build:
-  number: 4
+  number: 5
+  skip: True  # [python_impl == 'pypy']
   run_exports:
     - {{ pin_subpackage('nlopt', max_pin='x.x') }}
 
@@ -25,13 +26,13 @@ requirements:
     - make  # [unix]
     - swig
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - python
     - numpy
   run:
     - python
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:

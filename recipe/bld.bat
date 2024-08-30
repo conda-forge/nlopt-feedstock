@@ -18,4 +18,10 @@ if errorlevel 1 exit 1
 
 set DIST_INFO_PATH=%SP_DIR%\%PKG_NAME%-%PKG_VERSION%.dist-info
 mkdir %DIST_INFO_PATH%
-copy nul %DIST_INFO_PATH%\METADATA
+@echo off
+
+(
+  echo Metadata-Version: 1.0
+  echo Name: %PKG_NAME%
+  echo Version: %PKG_VERSION%
+) > %DIST_INFO_PATH%\METADATA

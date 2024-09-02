@@ -27,3 +27,5 @@ mkdir %DIST_INFO_PATH%
   echo Name: %PKG_NAME%
   echo Version: %PKG_VERSION%
 ) > %DIST_INFO_PATH%\METADATA
+
+type %DIST_INFO_PATH%\METADATA

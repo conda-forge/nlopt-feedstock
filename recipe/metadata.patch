@@ -1,0 +1,38 @@
+From 16fd0dfe58bc9650e45b07cdc2245a49ee6903f5 Mon Sep 17 00:00:00 2001
+From: Julien Schueller <schueller@phimeca.com>
+Date: Tue, 3 Sep 2024 08:46:05 +0200
+Subject: [PATCH 1/3] Add basic Python METADATA file
+
+---
+ src/swig/CMakeLists.txt | 4 ++++
+ src/swig/METADATA.in    | 3 +++
+ 2 files changed, 7 insertions(+)
+ create mode 100644 src/swig/METADATA.in
+
+diff --git a/src/swig/CMakeLists.txt b/src/swig/CMakeLists.txt
+index b676530..c0e4861 100644
+--- a/src/swig/CMakeLists.txt
++++ b/src/swig/CMakeLists.txt
+@@ -46,6 +46,10 @@ if (NUMPY_FOUND AND Python_FOUND)
+ 
+   install (FILES ${CMAKE_CURRENT_BINARY_DIR}/nlopt.py DESTINATION ${INSTALL_PYTHON_DIR})
+   install (TARGETS nlopt_python DESTINATION ${INSTALL_PYTHON_DIR})
++
++  configure_file (METADATA.in METADATA @ONLY)
++  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/METADATA
++           DESTINATION ${INSTALL_PYTHON_DIR}/nlopt-${NLOPT_VERSION_STRING}.dist-info)
+ endif ()
+ 
+ 
+diff --git a/src/swig/METADATA.in b/src/swig/METADATA.in
+new file mode 100644
+index 0000000..90e4f69
+--- /dev/null
++++ b/src/swig/METADATA.in
+@@ -0,0 +1,3 @@
++Metadata-Version: 1.2
++Name: nlopt
++Version: @NLOPT_VERSION_STRING@
+-- 
+2.34.1
+

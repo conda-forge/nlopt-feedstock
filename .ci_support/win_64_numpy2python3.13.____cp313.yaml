@@ -3,7 +3,7 @@ c_compiler:
 c_stdlib:
 - vs
 channel_sources:
-- conda-forge
+- conda-forge/label/python_rc,conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
@@ -11,13 +11,13 @@ cxx_compiler:
 nlopt:
 - '2.7'
 numpy:
-- '2.0'
+- '2'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.11.* *_cpython
+- 3.13.* *_cp313
 python_impl:
 - cpython
 target_platform:
@@ -26,3 +26,4 @@ zip_keys:
 - - python
   - numpy
   - python_impl
+  - channel_sources

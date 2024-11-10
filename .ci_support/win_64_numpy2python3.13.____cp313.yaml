@@ -3,13 +3,13 @@ c_compiler:
 c_stdlib:
 - vs
 channel_sources:
-- conda-forge/label/python_rc,conda-forge
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2019
 nlopt:
-- '2.7'
+- '2.8'
 numpy:
 - '2'
 pin_run_as_build:
@@ -26,4 +26,3 @@ zip_keys:
 - - python
   - numpy
   - python_impl
-  - channel_sources

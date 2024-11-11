@@ -8,9 +8,6 @@ source:
   fn: nlopt-{{ version }}.tar.gz
   url: https://github.com/stevengj/nlopt/archive/v{{ version }}.tar.gz
   sha256: 6e899e297485e457ec1bf84844de29921aeef674f9d5caf60277df45dca6ff76
-  patches:
-    - py313.patch
-    - metadata.patch
 
 build:
   number: 0

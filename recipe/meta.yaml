@@ -1,4 +1,4 @@
-{% set version = "2.8.0" %}
+{% set version = "2.9.0" %}
 
 package:
   name: nlopt
@@ -7,13 +7,10 @@ package:
 source:
   fn: nlopt-{{ version }}.tar.gz
   url: https://github.com/stevengj/nlopt/archive/v{{ version }}.tar.gz
-  sha256: e02a4956a69d323775d79fdaec7ba7a23ed912c7d45e439bc933d991ea3193fd
-  patches:
-    - py313.patch
-    - metadata.patch
+  sha256: 6e899e297485e457ec1bf84844de29921aeef674f9d5caf60277df45dca6ff76
 
 build:
-  number: 2
+  number: 0
   skip: true  # [python_impl == 'pypy']
   run_exports:
     - {{ pin_subpackage('nlopt', max_pin='x.x') }}

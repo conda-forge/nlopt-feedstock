@@ -21,7 +21,7 @@ cxx_compiler_version:
 macos_machine:
 - arm64-apple-darwin20.0.0
 nlopt:
-- '2.8'
+- '2.9'
 numpy:
 - '2.0'
 pin_run_as_build:

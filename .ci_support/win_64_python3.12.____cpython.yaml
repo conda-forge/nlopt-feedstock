@@ -1,5 +1,5 @@
 c_compiler:
-- vs2019
+- vs2022
 c_stdlib:
 - vs
 channel_sources:
@@ -7,11 +7,11 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2019
+- vs2022
 nlopt:
-- '2.9'
+- '2.10'
 numpy:
-- '2.0'
+- '2'
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -24,5 +24,4 @@ target_platform:
 - win-64
 zip_keys:
 - - python
-  - numpy
-  - python_impl
+  - channel_sources

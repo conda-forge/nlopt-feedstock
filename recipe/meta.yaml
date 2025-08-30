@@ -10,7 +10,7 @@ source:
   sha256: 506f83a9e778ad4f204446e99509cb2bdf5539de8beccc260a014bd560237be1
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
   run_exports:
     - {{ pin_subpackage('nlopt', max_pin='x.x') }}

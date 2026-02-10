@@ -1,4 +1,4 @@
-{% set version = "2.10.0" %}
+{% set version = "2.10.1" %}
 
 package:
   name: nlopt
@@ -7,10 +7,10 @@ package:
 source:
   fn: nlopt-{{ version }}.tar.gz
   url: https://github.com/stevengj/nlopt/archive/v{{ version }}.tar.gz
-  sha256: 506f83a9e778ad4f204446e99509cb2bdf5539de8beccc260a014bd560237be1
+  sha256: 30d13ce16da119db3e987784f7864e35a562ec62c186352fae55cd003e6c58ff
 
 build:
-  number: 3
+  number: 0
   run_exports:
     - {{ pin_subpackage('nlopt', max_pin='x.x') }}
 

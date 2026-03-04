@@ -3,7 +3,12 @@
 set -x
 
 if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
-  CMAKE_ARGS="${CMAKE_ARGS} -DPython_NumPy_INCLUDE_DIR=${SP_DIR}/numpy/_core/include"
+  # https://github.com/conda/conda-build/issues/5563
+  if test -d "${SP_DIR}/numpy/_core/include"; then
+    CMAKE_ARGS="${CMAKE_ARGS} -DPython_NumPy_INCLUDE_DIR=${SP_DIR}/numpy/_core/include"
+  else
+    CMAKE_ARGS="${CMAKE_ARGS} -DPython_NumPy_INCLUDE_DIR=$PREFIX/lib/python${PY_VER}t/site-packages/numpy/_core/include"
+  fi
 fi
 
 cmake -LAH ${CMAKE_ARGS} \

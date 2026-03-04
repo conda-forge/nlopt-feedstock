@@ -1,0 +1,53 @@
+schema_version: 1
+
+context:
+  version: "2.10.1"
+
+package:
+  name: nlopt
+  version: ${{ version }}
+
+source:
+  url: https://github.com/stevengj/nlopt/archive/v${{ version }}.tar.gz
+  sha256: 30d13ce16da119db3e987784f7864e35a562ec62c186352fae55cd003e6c58ff
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake
+    - swig
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('cxx') }}
+    - if: build_platform != target_platform
+      then:
+        - python
+        - numpy
+        - cross-python_${{ target_platform }}
+    - if: unix
+      then:
+        - make
+  host:
+    - python
+    - numpy
+  run:
+    - python
+  run_exports:
+    - ${{ pin_subpackage('nlopt', upper_bound='x.x') }}
+
+tests:
+  - python:
+      imports:
+        - nlopt
+
+about:
+  homepage: http://ab-initio.mit.edu/nlopt
+  license: LGPL-2.1-or-later
+  license_file: COPYING
+  summary: nonlinear optimization library
+
+extra:
+  recipe-maintainers:
+    - jschueller

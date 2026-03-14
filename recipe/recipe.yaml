@@ -10,9 +10,11 @@ package:
 source:
   url: https://github.com/stevengj/nlopt/archive/v${{ version }}.tar.gz
   sha256: 30d13ce16da119db3e987784f7864e35a562ec62c186352fae55cd003e6c58ff
+  patches:
+   - d8bd7cf4.patch
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:

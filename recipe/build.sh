@@ -2,10 +2,6 @@
 
 set -x
 
-# ninja: error: '../rattler-build_nlopt_1772620307/build_env/x86_64-conda-linux-gnu/sysroot/usr/lib/libm.so'
-sed -i.bak "s|\${M_LIBRARY})|m)|g" CMakeLists.txt
-cat CMakeLists.txt
-
 if test "${CONDA_BUILD_CROSS_COMPILATION}" == "1"; then
   # https://github.com/conda/conda-build/issues/5563
   if test -d "${SP_DIR}/numpy/_core/include"; then
@@ -22,7 +18,6 @@ cmake -LAH ${CMAKE_ARGS} \
   -DPython_FIND_STRATEGY=LOCATION \
   -DPython_ROOT_DIR=${PREFIX} \
   -DNLOPT_GUILE=OFF -DNLOPT_OCTAVE=OFF -DNLOPT_JAVA=OFF -DNLOPT_TESTS=ON \
-  -DM_LIBRARY=m \
   -B build .
 
 cmake --build build --target install --parallel ${CPU_COUNT}
